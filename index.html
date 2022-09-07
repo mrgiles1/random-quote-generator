@@ -1,0 +1,129 @@
+<html>
+<head>
+	<title>Elon Musk Quote Generator</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+	<link rel="stylesheet" type="text/css" href="css/quotegen01.css">
+
+</head>
+<body>
+
+<div class="background" id="bg">
+
+
+
+	<!-- Test Quotebox -->
+
+	<div class="quoteBox">
+
+		<div class="links">
+
+<!-- 			<a id="tweet-Quote" title="Tweet this quote!" class="twitter-share-button"
+  				href="https://twitter.com/intent/tweet"
+  				data-size="large">
+				Tweet</a> -->
+
+  <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="Hi! Check out these funny quotes by Elon Musk, Buddha & Michael Scott from The Office!" data-show-count="false">Tweet</a>
+		
+		</div>
+
+	<!-- 	<div style="width:75px">
+
+			<a class="twitter-share-button"
+  			href="https://twitter.com/intent/tweet?text=Hello%20world"
+  			data-size="large"><button id="tweetQuote"></button></a>
+
+		</div> -->
+
+
+		<div class="quoteButton" id="quoteButton">
+			<button onclick="newQuote()">Elon Musk Quote</button>
+
+		</div>
+
+		<div class="quoteButton" id="scottButton">
+			<button onclick="scottQuote()">Michael Scott Quote</button>
+
+		</div>
+
+		<div class="quoteButton" id="buddhaButton">
+			<button onclick="buddhaQuote()">Buddha Quote</button>
+
+		</div>
+
+		<div class="quoteDisplay" id="quoteDisplay">
+
+		</div>
+
+		
+
+
+	</div>
+
+</div>
+	
+	<script src="js/quotegen.js"></script>
+	
+	<script>
+
+		window.twttr = (function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0],
+   		 t = window.twttr || {};
+  		if (d.getElementById(id)) return t;
+  		js = d.createElement(s);
+  		js.id = id;
+  		js.src = "https://platform.twitter.com/widgets.js";
+  		fjs.parentNode.insertBefore(js, fjs);
+
+  		t._e = [];
+  		t.ready = function(f) {
+    		t._e.push(f);
+ 		 };
+
+  		return t;
+		}		
+
+		(document, "script", "twitter-wjs"));
+
+
+
+
+		twttr.ready(
+  			function (twttr) {
+    // bind events here
+
+    	twttr.events.bind(
+  		'click',
+		  function (ev) {
+		  	console.log("hello");
+		    console.log(ev);
+		  }
+		);
+
+
+//GEtting text in tweet
+
+		// $(document).ready(function() {
+
+		// 	$("#tweet-button").on("click", function() {
+
+		// 		$(this).attr("href", 'https://twitter.com/intent/tweet?text=' + $('#quoteDisplay').children();
+				
+		//   	});
+		// });
+ 
+
+
+
+
+	</script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>

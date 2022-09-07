@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Elon Musk Quote Generator</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+	<style type="text/css">
+
+		body {
+			background-color: #651fff;
+			
+		}
+
+		.links {
+			/*border: white 1px dotted;*/
+		}
+
+		.links button {
+
+			top: 0;
+			
+
+
+			/*height: 32px;
+			width: 55px;*/
+
+
+		}
+
+		.links img {
+			/*height: 20px;*/
+		}
+
+		.quoteButton button {
+			float: right;
+			margin-right: 15px;
+			padding-bottom: 5px;
+			height: 32px;
+
+		}
+
+		button {
+
+			/*margin-bottom: 10px;*/
+		}
+
+		button:hover{
+			color: #651fff;
+			cursor: pointer;
+		}
+
+		.background {
+			/*margin-top: 50px;*/
+			/*padding: 50px;*/
+			background-image: url("images/elonmusk04.jpg");
+			background-size: auto;
+			/*background-position: top-left;*/
+			background-repeat: no-repeat;
+			max-width: 800px;
+			width: 100%;
+			height: 800px;
+			margin-right: auto;
+			margin-left: auto;
+			/*border: 5px solid white;*/
+			/*height: 90vh;*/
+
+		}
+
+			/*.buttons {
+			    width:450px;
+			    margin:auto;
+			    display:block;
+			    .button {
+			      height:38px;
+			      border:none;
+			      border-radius:3px;
+			      color:#fff;
+			      background-color:#333;
+			      outline:none;
+			      font-size:0.85em;
+			      padding: 8px 18px 6px 18px;
+			      margin-top:30px;
+			      opacity:1;
+			      cursor:pointer;
+			      &:hover {
+			        opacity:0.9;
+			      }
+			      &#tweet-quote, &#tumblr-quote {
+			        float:left;
+			        padding:0px;
+			        padding-top:8px;
+			        text-align:center;
+			        font-size:1.2em;
+			        margin-right:5px;
+			        height:30px;
+			        width:40px;
+			      }
+			      &#new-quote {
+			        float:right;
+			      }
+    			}
+ 			}*/
+
+		.quoteBox {
+			
+
+			background-color: rgba(1, 1, 1, .6);
+			/*background: -moz-linear-gradient(down, rgba(1, 1, 1, .9), rgba(1, 1, 1, .1));*/
+			padding: 15px 15px 15px 0px;
+			/*margin-top: 10px;*/
+			/*width: 100%;*/
+
+			margin-right: auto;
+			margin-left: auto;
+			
+			/*height: 90vh;*/
+			
+
+		}
+
+		.quoteDisplay {
+
+			text-align: right;
+			color: white;
+			width: 85%;
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 50px;
+			/*padding-bottom: 30px;*/
+			font-size: 1.8em;
+			overflow: auto;
+
+		}
+
+		.cite {
+			color: white;
+			text-align: right;
+			padding-bottom: 30px;
+			font-size: 1.8em;
+		}
+
+		.links {
+			float: left;
+			margin-left: 15px;
+
+
+		}
+
+		
+
+
+	</style>
+
+</head>
+<body>
+
+<div class="background" id="bg">
+
+
+
+	<!-- Test Quotebox -->
+
+	<div class="quoteBox">
+
+		<div class="links">
+
+			<a id="tweet-Quote" title="Tweet this quote!" class="twitter-share-button"
+  				href="https://twitter.com/intent/tweet"
+  				data-size="large">
+
+  				  <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="Hi! Check out these funny quotes by Elon Musk, Donald Trump & Michael Scott from The Office!" data-show-count="false">Tweet</a>
+				Tweet</a>
+
+
+		
+		</div>
+
+	<!-- 	<div style="width:75px">
+
+			<a class="twitter-share-button"
+  			href="https://twitter.com/intent/tweet?text=Hello%20world"
+  			data-size="large"><button id="tweetQuote"></button></a>
+
+		</div> -->
+
+
+		<div class="quoteButton" id="quoteButton">
+			<button onclick="newQuote()">Elon Musk Quote</button>
+
+		</div>
+
+		<div class="quoteButton" id="scottButton">
+			<button onclick="scottQuote()">Michael Scott Quote</button>
+
+		</div>
+
+		<div class="quoteButton" id="trumpButton">
+			<button onclick="trumpQuote()">Donald Trump Quote</button>
+
+		</div>
+
+		<div class="quoteDisplay" id="quoteDisplay">
+
+		</div>
+
+		
+
+
+	</div>
+
+</div>
+	
+	<script src="js/quotegen.js"></script>
+	
+	<script>
+
+		window.twttr = (function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0],
+   		 t = window.twttr || {};
+  		if (d.getElementById(id)) return t;
+  		js = d.createElement(s);
+  		js.id = id;
+  		js.src = "https://platform.twitter.com/widgets.js";
+  		fjs.parentNode.insertBefore(js, fjs);
+
+  		t._e = [];
+  		t.ready = function(f) {
+    		t._e.push(f);
+ 		 };
+
+  		return t;
+		}		
+
+		(document, "script", "twitter-wjs"));
+
+
+
+
+		twttr.ready(
+  			function (twttr) {
+    // bind events here
+
+    	twttr.events.bind(
+  		'click',
+		  function (ev) {
+		  	console.log("hello");
+		    console.log(ev);
+		  }
+		);
+
+
+//GEtting text in tweet
+
+		// $(document).ready(function() {
+
+		// 	$("#tweet-button").on("click", function() {
+
+		// 		$(this).attr("href", 'https://twitter.com/intent/tweet?text=' + $('#quoteDisplay').children();
+				
+		//   	});
+		// });
+ 
+
+
+
+
+	</script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>
